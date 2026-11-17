@@ -1,0 +1,651 @@
+
+/* =========================================
+   LEVI'S MOTOSHOP
+   Picture-only presentation.
+   No shop controls or extra sections.
+========================================= */
+
+/* ROOT VARIABLES */
+
+:root {
+    --font-sans: 'Barlow', Arial, sans-serif;
+
+    --background: oklch(0.178 0 0);
+    --foreground: oklch(1 0 0);
+    --primary: oklch(0.568 0.211 27);
+    --gold: oklch(0.779 0.173 66);
+
+    --page-surround: oklch(0.97 0 0);
+    --reference-bar: oklch(0.285 0 0);
+    --logo-blue: oklch(0.7 0.15 235);
+
+    --scene-shade: oklch(0.08 0 0 / 48%);
+    --scene-rule: oklch(0.8 0 0 / 45%);
+}
+
+/* =========================================
+   GLOBAL STYLES
+========================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    letter-spacing: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    min-width: 0;
+    margin: 0;
+
+    color: var(--foreground);
+    background: var(--page-surround);
+
+    font-family: var(--font-sans);
+    font-size: 16px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+    margin: 0;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 800;
+    line-height: 1.05;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.reference-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+
+    width: 100%;
+
+    color: var(--foreground);
+    background: var(--reference-bar);
+}
+
+.reference-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    width: 100%;
+    max-width: 1260px;
+    min-height: 76px;
+
+    padding: 0 24px;
+    margin: auto;
+}
+
+.reference-header-inner p {
+    min-width: 0;
+    font-size: 22px;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   MAIN SHOP
+========================================= */
+
+.reference-shop {
+    width: calc(100% - 24px);
+    max-width: 1180px;
+
+    margin: 12px auto 0;
+
+    background: var(--background);
+}
+
+.reference-scene {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background: var(--background);
+}
+
+.reference-background {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.reference-scene::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    content: "";
+
+    background: var(--scene-shade);
+    pointer-events: none;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.reference-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 15px 22px;
+}
+
+.reference-nav > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
+}
+
+.reference-nav a:not(.reference-logo) {
+    color: var(--primary);
+
+    font-size: 14px;
+    font-weight: 800;
+
+    transition: color 0.2s ease;
+}
+
+.reference-nav a:not(.reference-logo):hover {
+    color: var(--gold);
+}
+
+.reference-logo {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    color: var(--logo-blue);
+    background: var(--background);
+
+    border: 3px solid var(--foreground);
+    border-radius: 50%;
+
+    box-shadow: inset 0 0 0 2px var(--logo-blue);
+}
+
+.reference-logo svg {
+    width: 24px;
+    height: 21px;
+}
+
+.reference-logo span {
+    font-size: 10px;
+    font-weight: 800;
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.reference-hero {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1.15fr);
+
+    align-items: start;
+    gap: 65px;
+
+    padding: 25px 70px 35px;
+}
+
+.reference-hero figure {
+    min-width: 0;
+    text-align: center;
+}
+
+.reference-hero figure img {
+    width: 100%;
+    aspect-ratio: 1.28;
+
+    object-fit: contain;
+    background: var(--background);
+}
+
+.reference-hero figcaption {
+    margin-top: 18px;
+
+    color: var(--gold);
+
+    font-size: 19px;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.reference-hero-copy {
+    min-width: 0;
+    padding-top: 12px;
+
+    font-weight: 700;
+    font-style: italic;
+}
+
+.reference-hero h1 {
+    margin-bottom: 24px;
+
+    font-family: var(--font-sans);
+    font-size: 26px;
+    line-height: 1.25;
+
+    overflow-wrap: anywhere;
+}
+
+.reference-hero p {
+    max-width: 470px;
+
+    font-size: 18px;
+    line-height: 1.25;
+
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.reference-scene h2 {
+    color: var(--gold);
+
+    font-family: var(--font-sans);
+    font-size: 25px;
+    font-weight: 800;
+
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* =========================================
+   ABOUT SECTION
+========================================= */
+
+.reference-about {
+    padding: 30px 65px 65px;
+
+    border-top: 1px solid var(--scene-rule);
+}
+
+.reference-about p {
+    max-width: 950px;
+
+    margin: 28px auto 0;
+
+    font-size: 21px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.2;
+
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   FEATURED SECTION
+========================================= */
+
+.reference-featured {
+    padding: 38px 70px 50px;
+
+    border-top: 1px solid var(--scene-rule);
+}
+
+.reference-featured-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    align-items: center;
+    gap: 90px;
+
+    margin-top: 38px;
+}
+
+.reference-featured-item {
+    min-width: 0;
+    text-align: center;
+}
+
+.reference-product-photo {
+    position: relative;
+
+    width: 100%;
+    max-width: 380px;
+
+    margin: auto;
+}
+
+.reference-product-photo img {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 1;
+
+    object-fit: cover;
+}
+
+.reference-featured-item:first-child .reference-product-photo {
+    max-width: 300px;
+}
+
+.reference-featured-item h3 {
+    margin-top: 26px;
+
+    color: var(--gold);
+
+    font-family: var(--font-sans);
+    font-size: 25px;
+    font-style: italic;
+
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   PRODUCT SECTION
+========================================= */
+
+.reference-product {
+    padding: 40px 70px 160px;
+
+    border-top: 1px solid var(--scene-rule);
+}
+
+.reference-product-inner {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    align-items: center;
+    gap: 90px;
+
+    margin-top: 42px;
+}
+
+.reference-product-inner > img {
+    justify-self: center;
+
+    width: 100%;
+    max-width: 300px;
+
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+/* PRODUCT TEXT */
+
+.reference-deals {
+    display: flex;
+    min-width: 0;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 26px;
+}
+
+.reference-deals span {
+    display: inline-block;
+
+    max-width: 100%;
+    height: auto;
+
+    padding: 12px 15px;
+
+    color: var(--primary);
+    background: var(--gold);
+
+    border-radius: 0;
+
+    font-size: 25px;
+    font-weight: 800;
+    font-style: italic;
+
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   TABLET AND MOBILE
+========================================= */
+
+@media (max-width: 760px) {
+
+    html {
+        scroll-padding-top: 55px;
+    }
+
+    /* HEADER */
+
+    .reference-header-inner {
+        min-height: 47px;
+        gap: 5px;
+        padding: 0 10px;
+    }
+
+    .reference-header-inner p {
+        font-size: 15px;
+    }
+
+    /* MAIN */
+
+    .reference-shop {
+        width: calc(100% - 32px);
+        margin: 5px auto 0;
+    }
+
+    /* NAVIGATION */
+
+    .reference-nav {
+        gap: 10px;
+        padding: 5px 5px 10px;
+    }
+
+    .reference-logo {
+        width: 28px;
+        height: 28px;
+
+        border-width: 2px;
+    }
+
+    .reference-logo svg {
+        width: 15px;
+        height: 14px;
+    }
+
+    .reference-logo span {
+        font-size: 6px;
+    }
+
+    .reference-nav > div {
+        gap: 7px;
+    }
+
+    .reference-nav a:not(.reference-logo) {
+        font-size: 8px;
+    }
+
+    /* HERO */
+
+    .reference-hero {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1.15fr);
+
+        gap: 35px;
+        padding: 5px 23px 13px;
+    }
+
+    .reference-hero figcaption {
+        margin-top: 8px;
+        font-size: 10px;
+    }
+
+    .reference-hero-copy {
+        padding-top: 4px;
+    }
+
+    .reference-hero h1 {
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    .reference-hero p {
+        font-size: 10px;
+        line-height: 1.13;
+    }
+
+    /* HEADINGS */
+
+    .reference-scene h2 {
+        font-size: 13px;
+    }
+
+    /* ABOUT */
+
+    .reference-about {
+        padding: 11px 29px 33px;
+    }
+
+    .reference-about p {
+        margin-top: 13px;
+
+        font-size: 11px;
+        line-height: 1.13;
+    }
+
+    /* FEATURED */
+
+    .reference-featured {
+        padding: 17px 23px 19px;
+    }
+
+    .reference-featured-grid {
+        gap: 42px;
+        margin-top: 17px;
+    }
+
+    .reference-featured-item h3 {
+        margin-top: 14px;
+        font-size: 13px;
+    }
+
+    .reference-featured-item:first-child .reference-product-photo {
+        width: 92%;
+    }
+
+    /* PRODUCT */
+
+    .reference-product {
+        padding: 18px 24px 75px;
+    }
+
+    .reference-product-inner {
+        gap: 45px;
+        margin-top: 22px;
+    }
+
+    .reference-deals {
+        gap: 12px;
+    }
+
+    .reference-deals span {
+        padding: 6px 8px;
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE SCREENS
+========================================= */
+
+@media (max-width: 370px) {
+
+    .reference-hero {
+        gap: 18px;
+        padding-inline: 18px;
+    }
+
+    .reference-nav > div {
+        gap: 5px;
+    }
+
+    .reference-nav a:not(.reference-logo) {
+        font-size: 7px;
+    }
+
+    .reference-featured-grid,
+    .reference-product-inner {
+        gap: 24px;
+    }
+
+    .reference-hero p {
+        font-size: 10px;
+    }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.reference-nav a:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
